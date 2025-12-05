@@ -18,10 +18,14 @@ connectDB();
 app.use(helmet()); // Security headers
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: [
+      process.env.FRONTEND_URL,
+      "http://localhost:5173",
+      "https://wellnewyear.developerverse.tech",
+    ],
     credentials: true,
   })
-); // CORS
+); //cors
 app.use(express.json()); // Body parser
 app.use(express.urlencoded({ extended: true }));
 
